@@ -1,0 +1,97 @@
+package pkgMain;
+
+import pkgcompte.Compte;
+import pkgcompte.Titulaire;
+
+public class Main {
+
+
+	public static void main(String[] args)throws Exception {
+
+		// ----------------------------------------------------
+		// Création de variables temporaires réutilisables
+		Integer t_Integer_montantARetirer1 = 200;
+		Integer t_Integer_montantARetirer2 = 50;
+
+		Integer t_Integer_montantAVirer1 = 300;
+		Integer t_Integer_montantAVirer2 = 100;
+
+		int		t_int_idTitulaire1 = 1;
+		int		t_int_idTitulaire2 = 50;
+		
+		int		t_int_idCompte1 = 1;
+		int		t_int_idCompte2 = 50;
+		
+		String  t_str_nomTitulaireCompte1 = "karima1";
+		String  t_str_nomTitulaireCompte2 = "karima";
+		
+		Integer t_Integer_soldeInitialCompte1 = 1000;
+		Integer t_Integer_soldeInitialCompte2 = 2000;
+		
+		Titulaire t_refTitulaire1=null;
+		Titulaire t_refTitulaire2=null;
+		
+		Compte t_refCompte1=null;
+		Compte t_refCompte2=null;
+		// ----------------------------------------------------
+		
+		
+		//int l_int_id_titulaire= -1;
+		//String l_str_nom_titulaire = null;
+		//int l_int_idCompte=0;
+		
+		try {
+			//Création objet Titulaires
+			t_refTitulaire1= new Titulaire(t_int_idTitulaire1, t_str_nomTitulaireCompte1);
+			t_refTitulaire2= new Titulaire(t_int_idTitulaire2, t_str_nomTitulaireCompte2);
+			
+			//	Création objet Comptes
+			t_refCompte1 = new Compte(t_int_idCompte1, t_refTitulaire1, t_Integer_soldeInitialCompte1);
+			t_refCompte2 = new Compte(t_int_idCompte2, t_refTitulaire2, t_Integer_soldeInitialCompte2);
+			
+			//afficher le solde du compte 1 avant retrait
+			System.out.println("solde du compte 1 avant retrait:"+t_refCompte1.get_Integer_solde().intValue());
+			
+			// effectuer un retrait sur le compte de karima1
+			t_refCompte1.effectuerUnretrait(t_Integer_montantARetirer1);
+			t_refCompte1.effectuerUnretrait(t_Integer_montantARetirer2);
+			
+			//afficher le solde apres retrait
+			System.out.println("solde du compte 1 après retrait:"+t_refCompte1.get_Integer_solde());
+			
+			//afficher le solde du compte 2 avant retrait
+			System.out.println("solde du compte 2 avant retrait:"+t_refCompte2.get_Integer_solde().intValue());
+			
+			// effectuer un retrait sur le compte2 de karima
+			t_refCompte2.effectuerUnretrait(t_Integer_montantARetirer1);
+			
+			//afficher le solde apres retrait
+			System.out.println("solde du compte 2 après retrait:"+t_refCompte2.get_Integer_solde());
+			// Choix 1 : avec une methode statique à la classe Compte
+			t_refCompte1.realiserunViremententredeuxComptes(t_Integer_montantAVirer1, t_refCompte1, t_refCompte2);
+			
+			// Choix 2 : avec une methode interne à la classe compte
+			// t_refCompte1.recevoirUnVirement(t_Integer_montantAVirer1, t_refCompte2);
+			 
+			//afficher le solde du compte1 apres virement a paritir du compte2
+				System.out.println("solde du compte 1 après viremnt:"+t_refCompte1.get_Integer_solde());
+
+			//afficher le solde apres VIREMENT
+		//	System.out.println("solde après retrait:"+compte.get_Integer_solde());
+			//compte.effectuerUnretrait(300);
+			//afficher le solde apres retrait
+			//System.out.println("solde après retrait:"+compte.get_Integer_solde());
+		}
+		
+		catch (Exception e) {
+			System.out.println("le msg complet est["+e.toString()+"]");
+		}
+
+
+	}
+}
+
+
+
+
+

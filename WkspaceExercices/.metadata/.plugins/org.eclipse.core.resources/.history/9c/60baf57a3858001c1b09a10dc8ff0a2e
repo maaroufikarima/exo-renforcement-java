@@ -1,0 +1,65 @@
+package pkgMain;
+
+import pkgcompte.Compte;
+import pkgcompte.Titulaire;
+
+public class Main {
+	private Integer i_Integer_solde =1000;
+	
+	public static void main(String[] args) {
+		
+		try {
+			//Création objet Titulaire
+			Titulaire Tt= new Titulaire();
+		
+			//	Création objet Compte
+			Compte Cp = new Compte();
+			
+			cp.effectuerUnretrait(200);
+
+		} catch (Exception e) {
+			System.out.println("le msg complet est["+e.toString()+"]");
+		}
+	}
+		public static void effectuerUnretrait(Integer i_Integer_montant) throws Exception{
+			String tmp = "traitement échoué!";
+			if (i_Integer_montant == null) {throw new Exception("Le montant ["+i_Integer_montant+"] fourni est null, interdit!");}
+			if (i_Integer_montant < 0) {throw new Exception("Le montant ["+i_Integer_montant+"] fourni est négatif!, interdit!");}
+			if (this.i_Integer_solde - i_Integer_montant < 0) {throw new Exception("Le montant ["+i_Integer_montant+"] fourni est superieur au solde du compte, interdit!");}
+			if (this.i_Integer_solde > 10000) {throw new Exception("Le montant ["+i_Integer_montant+"] fourni est superieur 10000€ autorisés par retrait, interdit!");}
+
+			try {
+				this.i_Integer_solde -= i_Integer_montant;
+				tmp = "votre retrait a été effectué avec succès!";
+			}
+			catch(Exception e){
+				tmp = e.toString();
+			}
+			finally {
+				System.out.println(tmp + " traitement de la demande terminé!");
+			}
+
+		}
+		//creation d'une methode pour effectuer un retrait
+		public void effectuerUnvirement(Integer i_Integer_montantV) throws Exception{
+			String tmp = "traitement échoué!";
+			if (i_Integer_montantV == null) {throw new Exception("Le montant ["+i_Integer_montantV+"] fourni est null, interdit!");}
+			if (i_Integer_montantV < 0) {throw new Exception("Le montant ["+i_Integer_montantV+"] fourni est négatif!, interdit!");}
+
+			try {
+				this.i_Integer_solde += i_Integer_montantV;
+				tmp = "votre virement a été effectué avec succès!";
+			}
+			catch(Exception e){
+				tmp = e.toString();
+			}
+			finally {
+				System.out.println(tmp + " traitement de la demande terminé!");
+			}
+
+
+		
+	}
+}
+
+

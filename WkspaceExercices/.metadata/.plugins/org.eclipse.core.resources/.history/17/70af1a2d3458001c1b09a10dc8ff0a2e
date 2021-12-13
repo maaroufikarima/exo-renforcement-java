@@ -1,0 +1,86 @@
+package pkgcompte;
+
+public class Compte {
+	private int i_int_idCompte;
+	private Titulaire i_refTitulaire;
+	private Integer i_Integer_soldeInitial;
+	private Integer i_Integer_solde;
+	public Compte() {
+		super();
+	}
+
+	public Compte(int i_int_idCompte, Titulaire i_refTitulaire, Integer i_Integer_soldeInitial) {
+		super();
+		this.i_int_idCompte = i_int_idCompte;
+		this.i_refTitulaire = i_refTitulaire;
+		this.i_Integer_soldeInitial = i_Integer_soldeInitial;
+	}
+
+	public int getI_int_idCompte() {
+		return i_int_idCompte;
+	}
+
+	public void setI_int_idCompte(int i_int_idCompte) {
+		this.i_int_idCompte = i_int_idCompte;
+	}
+
+	public Titulaire getI_refTitulaire() {
+		return i_refTitulaire;
+	}
+
+	public void setI_refTitulaire(Titulaire i_refTitulaire) {
+		this.i_refTitulaire = i_refTitulaire;
+	}
+
+	public Integer getI_Integer_soldeInitial() {
+		return i_Integer_soldeInitial;
+	}
+
+	public void setI_Integer_soldeInitial(Integer i_Integer_soldeInitial) {
+		this.i_Integer_soldeInitial = i_Integer_soldeInitial;
+	}
+
+	@Override
+	public String toString() {
+		return "Compte [i_int_idCompte=" + i_int_idCompte + ", i_refTitulaire=" + i_refTitulaire
+				+ ", i_Integer_soldeInitial=" + i_Integer_soldeInitial + "]";
+	}
+	
+	
+	public void effectuerUnretrait(Integer i_Integer_montant) throws Exception{
+		String tmp = "traitement échoué!";
+		if (i_Integer_montant == null) {throw new Exception("Le montant ["+i_Integer_montant+"] fourni est null, interdit!");}
+		if (i_Integer_montant < 0) {throw new Exception("Le montant ["+i_Integer_montant+"] fourni est négatif!, interdit!");}
+		if (this.i_Integer_solde - i_Integer_montant < 0) {throw new Exception("Le montant ["+i_Integer_montant+"] fourni est superieur au solde du compte, interdit!");}
+		if (this.i_Integer_solde > 10000) {throw new Exception("Le montant ["+i_Integer_montant+"] fourni est superieur 10000€ autorisés par retrait, interdit!");}
+
+		try {
+			this.i_Integer_solde -= i_Integer_montant;
+			tmp = "votre retrait a été effectué avec succès!";
+		}
+		catch(Exception e){
+			tmp = e.toString();
+		}
+		finally {
+			System.out.println(tmp + " traitement de la demande terminé!");
+		}
+
+	}
+	public void effectuerUnvirement(Integer i_Integer_montantV) throws Exception{
+		String tmp = "traitement échoué!";
+		if (i_Integer_montantV == null) {throw new Exception("Le montant ["+i_Integer_montantV+"] fourni est null, interdit!");}
+		if (i_Integer_montantV < 0) {throw new Exception("Le montant ["+i_Integer_montantV+"] fourni est négatif!, interdit!");}
+		
+		try {
+			this.i_Integer_solde += i_Integer_montantV;
+			tmp = "votre virement a été effectué avec succès!";
+		}
+		catch(Exception e){
+			tmp = e.toString();
+		}
+		finally {
+			System.out.println(tmp + " traitement de la demande terminé!");
+		}
+
+	}
+}

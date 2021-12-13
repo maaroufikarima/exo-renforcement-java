@@ -1,0 +1,42 @@
+package pkgcompte;
+
+public class Titulaire {
+
+	
+	public int i_idTitulaire;
+	public String i_str_nomTitulaire;
+	
+	
+	
+	public Titulaire(int i_idTitulaire, String i_str_nomTitulaire) {
+		super();
+		this.i_idTitulaire = i_idTitulaire;
+		this.i_str_nomTitulaire = i_str_nomTitulaire;
+		
+	}
+
+	@Override
+	public String toString() {
+		return "Titulaire [i_idTitulaire=" + i_idTitulaire + ", i_str_nomTitulaire=" + i_str_nomTitulaire + "]";
+	}
+
+	public int getI_idTitulaire() {
+		return i_idTitulaire;
+	}
+
+	public void setI_idTitulaire(int i_idTitulaire) {
+		this.i_idTitulaire = i_idTitulaire;
+	}
+
+	public String getI_str_nomTitulaire() {
+		return i_str_nomTitulaire;
+	}
+
+	public void setI_str_nomTitulaire(String i_str_nomTitulaire) {
+		this.i_str_nomTitulaire = i_str_nomTitulaire;
+	}
+
+
+	
+
+}

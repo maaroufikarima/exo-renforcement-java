@@ -1,0 +1,50 @@
+package pkgcompte;
+
+public class Compte {
+	private int i_int_idCompte;
+	private Titulaire i_refTitulaire;
+	private Integer i_Integer_soldeInitial;
+	
+	public Compte() {
+		super();
+	}
+
+	public Compte(int i_int_idCompte, Titulaire i_refTitulaire, Integer i_Integer_soldeInitial) {
+		super();
+		this.i_int_idCompte = i_int_idCompte;
+		this.i_refTitulaire = i_refTitulaire;
+		this.i_Integer_soldeInitial = i_Integer_soldeInitial;
+	}
+
+	public int getI_int_idCompte() {
+		return i_int_idCompte;
+	}
+
+	public void setI_int_idCompte(int i_int_idCompte) {
+		this.i_int_idCompte = i_int_idCompte;
+	}
+
+	public Titulaire getI_refTitulaire() {
+		return i_refTitulaire;
+	}
+
+	public void setI_refTitulaire(Titulaire i_refTitulaire) {
+		this.i_refTitulaire = i_refTitulaire;
+	}
+
+	public Integer getI_Integer_soldeInitial() {
+		return i_Integer_soldeInitial;
+	}
+
+	public void setI_Integer_soldeInitial(Integer i_Integer_soldeInitial) {
+		this.i_Integer_soldeInitial = i_Integer_soldeInitial;
+	}
+
+	@Override
+	public String toString() {
+		return "Compte [i_int_idCompte=" + i_int_idCompte + ", i_refTitulaire=" + i_refTitulaire
+				+ ", i_Integer_soldeInitial=" + i_Integer_soldeInitial + "]";
+	}
+	
+	
+}

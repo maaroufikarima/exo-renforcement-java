@@ -1,0 +1,32 @@
+package pkgMain;
+
+import pkgcompte.Compte;
+import pkgcompte.Titulaire;
+
+public class Main {
+	
+	
+	public static void main(String[] args) {
+		
+		int T_int_id_titulaire= -1;
+		String T_str_nom_titulaire = null;
+			//Création objet Titulaire
+			Titulaire Tt= new Titulaire(T_int_id_titulaire,T_str_nom_titulaire);
+		
+			//	Création objet Compte
+			Compte Cp = new Compte();
+			
+		effectuerUnretrait(200);
+		effectuerUnvirement(1000);
+		
+
+		} catch (Exception e) {
+			System.out.println("le msg complet est["+e.toString()+"]");
+		}
+	
+
+		}
+
+
+
+

@@ -1,0 +1,51 @@
+package pkgMain;
+
+import pkgcompte.Compte;
+import pkgcompte.Titulaire;
+
+public class Main {
+
+
+	public static void main(String[] args)throws Exception {
+
+		//int l_int_id_titulaire= -1;
+		//String l_str_nom_titulaire = null;
+		//int l_int_idCompte=0;
+		Titulaire l_refTitulaire=null;
+		//Integer l_Integer_soldeInitial=null;
+		Integer solde=1000;
+
+		try {
+			//Création objet Titulaire
+			l_refTitulaire= new Titulaire(10, "karima");
+
+			//	Création objet Compte
+			Compte compte = new Compte(15, l_refTitulaire, solde);
+			//afficher le solde avant retrait
+			System.out.println("solde avant retrait:"+solde);
+			compte.getM_Integer_solde();
+			// effectuer un retrait sur le compte de karima
+			compte.effectuerUnretrait(20);
+			//afficher le solde apres retrait
+			System.out.println("solde après retrait:"+compte.getM_Integer_solde());
+			
+			//effectuer un virement
+			compte.effectuerUnvirement(200);
+			//afficher le solde apres VIREMENT
+			System.out.println("solde après retrait:"+compte.getM_Integer_solde());
+			compte.effectuerUnretrait(300);
+			//afficher le solde apres retrait
+			System.out.println("solde après retrait:"+compte.getM_Integer_solde());
+		}
+		
+		catch (Exception e) {
+			System.out.println("le msg complet est["+e.toString()+"]");
+		}
+
+
+	}
+}
+
+
+
+
